@@ -1,12 +1,10 @@
-import type { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
-import Header from '../components/Header'
-import Main from '../components/Main'
-import SideMenu from '../components/SideMenu'
+import { NextPage } from "next"
+import Head from "next/head"
+import Header from "../../components/Header"
 
-const Home: NextPage = () => {
+const Supplier: NextPage = () => {
     return (
-        <div className="bg-[#001731] border-[#375974] text-white">
+        <div>
             <Head>
                 <title>Что нашел Сервер?</title>
                 <meta name="description" content="Сайт сделала команда 5 денег" />
@@ -16,10 +14,9 @@ const Home: NextPage = () => {
                 <link rel="manifest" href="/site.webmanifest" />
             </Head>
             <Header />
-            <SideMenu />
-            <Main/>
+            xd
         </div>
     )
 }
 
-export default Home
+export default Supplier
