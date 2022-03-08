@@ -25,6 +25,9 @@ const Supplier: NextPage = () => {
             setData(supplierData.data)
         })()
     }, [id])
+    async function addToFavorite() {
+        
+    }
     return (
         <div>
             <Head>

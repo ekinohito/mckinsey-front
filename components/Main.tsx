@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import { Supplier, SupplierDoc } from '../typings/Supplier'
+import { SupplierDoc } from '../typings/Supplier'
 import GoodsForm from './GoodsForm'
-import SupplierCard from './SupplierCard'
 import SuppliersList from './SuppliersList'
 
   
-
 export default function Main() {
     const [suppliers, setSuppliers] = useState<SupplierDoc[] | null>(null)
     const [loading, setLoading] = useState<boolean>(false)

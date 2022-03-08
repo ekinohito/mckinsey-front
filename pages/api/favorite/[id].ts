@@ -12,10 +12,9 @@ export default async function handler(
     res: NextApiResponse<Data>
 ) {
     await dbConnect()
-    const { id, inn, ogrn, name, rating } = req.body
-    if (!(id && inn && ogrn && name && rating)) return res.status(400).json({ status: 'no data' })
+    const { id } = req.query
     try {
-        return res.status(201).json(await Favorite.create({_id: id, inn, ogrn, name, rating}))
+        return res.status(200).json(await Favorite.findById(id ))
     } catch (e: any) {
         return res.status(400).json({ status: e.toString() })
     }

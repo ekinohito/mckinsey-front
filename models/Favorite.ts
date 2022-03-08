@@ -16,6 +16,10 @@ const FavoriteSchema = new mongoose.Schema({
         required: [true, 'Please provide inn for org.'],
         unique: [true, 'INN should be unique'],
     },
+    rating: {
+        type: Number,
+        required: true,
+    },
 })
 FavoriteSchema.plugin(uniqueValidator)
 

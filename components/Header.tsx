@@ -19,7 +19,7 @@ export default function Header() {
         </div>
         <div className="space-x-6">
             <Link href="/">Поиск</Link>
-            <Link href="/">Избранное</Link>
+            <Link href="/favorites">Избранное</Link>
             <Link href="/">Настройки</Link>
         </div>
     </div>
