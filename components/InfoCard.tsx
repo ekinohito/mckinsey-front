@@ -32,7 +32,7 @@ export default function InfoCard({title, rating, details}: {title: string, ratin
             </div>
             <div className="text-xl text-gray-400 space-y-2">
                 {details.map(detail => (
-                    <div className="flex flex-row items-center">
+                    <div key={detail.key} className="flex flex-row items-center">
                         {detail.info && <span
                             title={detail.info}
                             className="border-2 border-gray-400 rounded-full shrink-0 w-5 text-center h-5 text-xs inline-block mr-2 select-none cursor-default">?</span>}
