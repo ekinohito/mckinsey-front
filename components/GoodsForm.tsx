@@ -5,16 +5,19 @@ import { SuppliersResponse } from "../pages/api/suppliers";
 import { OptResponse } from "../typings/Response";
 import { Supplier, SupplierDoc } from "../typings/Supplier";
 
-export default function GoodsForm({setSuppliers}:{setSuppliers: (suppliers: SupplierDoc[]) => void}) {
+export default function GoodsForm({setSuppliers, setLoading}:{setSuppliers: (suppliers: SupplierDoc[] | null) => void, setLoading: (loading: boolean) => void}) {
     return (
         <Formik initialValues={{
             goodType: '',
             useCache: true,
         }} onSubmit={async (values) => {
+            setSuppliers(null)
+            setLoading(true)
             const { data } = await api.get('suppliers', { params: values })
             const suppliers = JSON.parse(data) as SuppliersResponse
             if (suppliers.status !== 'ok') return
             setSuppliers(suppliers.data)
+            setLoading(false)
         }}
             enableReinitialize>
             {(props: FormikProps<any>) => (

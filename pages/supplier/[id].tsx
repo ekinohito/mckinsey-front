@@ -51,79 +51,78 @@ const Supplier: NextPage = () => {
                         <h1 className="text-3xl">{data?.ogrn}</h1>
                     </section>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 col-span-2 gap-[2px] min-h-screen">
-                    <GraphCard rating={4.7} data={[1, 2, 1, 3, 1]}/>
+                {data && <div className="grid grid-cols-1 sm:grid-cols-2 col-span-2 gap-[2px] min-h-screen">
+                    <GraphCard rating={data.rating} data={[+data.financeTotal, +data.juridicalTotal, +data.experienceTotal, 5, 5]}/>
                     <InfoCard title="Финансы" details={[
                         {
                             info: 'Комплексный показатель, основанный на анализе имущественного положения предприятия и структуры капитала: темпах изменения размера и стуктуры баланса и прибыли',
                             key: 'Положение предприятия',
-                            value: '100'
+                            value: data.financeStatus
                         },
                         {
                             info: 'Комплексный показатель, основанный на анализе деловой активности и рентабельности с учетом динамики изменений за год',
                             key: 'Эффективность',
-                            value: '100'
+                            value: data.financeEfficiency
                         },
                         {
                             info: 'Комплексный показатель, основанный на анализе финансовой устойчивости (в т.ч. при неустойчивой кредитной политике); анализе ликвидности и платежеспособности',
                             key: 'Финансовое состояние',
-                            value: '100'
+                            value: data.financeCondition
                         },
-                    ]} rating={3} />
+                    ]} rating={+data.financeTotal} />
                     <InfoCard title="Юр. показатели и надежность" details={[
                         {
                             info: 'Комплексный показатель, учитывающий наличие задолженностей и отчетностей',
                             key: 'Налоговое поведение',
-                            value: '100'
+                            value: data.juridicalTaxBehaviour
                         },
                         {
                             info: 'Информационная открытость',
                             key: 'Добросовестность',
-                            value: '100'
+                            value: data.juridicalHonesty
                         },
                         {
                             info: 'Комплексный показатель, учитывающий достоверность данных и сами данные о руководителе',
                             key: 'Руководитель',
-                            value: '100'
+                            value: data.juridicalDirector
                         },
                         {
                             info: 'Количество судебных дел',
                             key: 'Суды',
-                            value: '100'
+                            value: data.juridicalCourts
                         },
-                    ]} rating={4.5} />
+                    ]} rating={data.juridicalTotal} />
                     <InfoCard title="Размер и опыт" details={[
                         {
                             info: 'Комплексный показатель, учитывающий объем и структуру связанный предприятий',
                             key: 'Размер',
-                            value: '100'
+                            value: data.experienceSize
                         },
                         {
                             info: 'Комплексный показатель, рассчитанный с учетом возраста и истории изменений юр. адреса',
                             key: 'Стабильность',
-                            value: '100'
+                            value: data.experienceStability
                         },
                         {
                             info: 'Комплексный показатель, рассчитанный с учетом количества лицензий и товарных знаков, а так же размера уставного капитала',
                             key: 'Устойчивость',
-                            value: '100'
+                            value: data.experienceSustainability
                         },
                         {
                             info: 'Комплексный показатель, рассчитанный с учетом количества партнеров и истории госзакупок',
                             key: 'Опыт в качестве поставщика',
-                            value: '100'
+                            value: data.experienceSupplier
                         },
-                    ]} rating={8} />
+                    ]} rating={data.experienceTotal} />
                     <InfoCard title="Взаимодействие" details={[
                         { info: "", key: "Качество взимодействия", value: 'неизвестно' },
                         { info: "", key: "Время задержки товара", value: 'неизвестно' },
                     ]} rating="-" />
                     <InfoCard title="Качество товара" details={[
-
                         { info: "", key: "Количество товара", value: 'неизвестно' },
                         { info: "", key: "Процент брака", value: 'неизвестно' },
                     ]} rating="-" />
-                </div>
+                </div>}
             </div>
         </div>
     )

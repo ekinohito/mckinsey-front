@@ -1,5 +1,6 @@
 import Chart from 'chart.js/auto';
 import { useEffect, useRef } from "react"
+import convert from '../utils/convert';
 
 function colorOfRating(rating?: number | string) {
     if (!rating) return 'no'
@@ -17,11 +18,12 @@ function colorOfRating(rating?: number | string) {
 }
 
 export default function GraphCard({ rating, data }: { rating?: number | string, data: number[] }) {
+    const displayRating = rating ? convert(rating) : undefined
     const ratings = {
-        red: <span className="text-red-200">{rating}</span>,
-        yellow: <span className="text-yellow-200">{rating}</span>,
-        green: <span className="text-green-200">{rating}</span>,
-        no: <span className="text-gray-200">{rating}</span>,
+        red: <span className="text-red-200">{displayRating}</span>,
+        yellow: <span className="text-yellow-200">{displayRating}</span>,
+        green: <span className="text-green-200">{displayRating}</span>,
+        no: <span className="text-gray-200">{displayRating}</span>,
     }
     const colors = {
         red: '#fecaca',
@@ -35,11 +37,11 @@ export default function GraphCard({ rating, data }: { rating?: number | string, 
         if (ctx == null) return
         const graphData = {
             labels: [
-              'Eating',
-              'Drinking',
-              'Sleeping',
-              'Designing',
-              'Coding',
+              'Финансовые',
+              'Юридические',
+              'Размер',
+              'Взаимодействие',
+              'Качество',
             ],
             datasets: [{
               label: '',
@@ -88,9 +90,10 @@ export default function GraphCard({ rating, data }: { rating?: number | string, 
 
     const color = colorOfRating(rating)
     return (
-        <div className="p-3 bg-[#011631] text-white relative">
+        <div className="p-3 bg-[#011631] text-white relative flex justify-center items-center">
             <div className="text-6xl absolute inset-0 flex justify-center items-center">
-                <div>{ratings[color]}</div></div>
+                <div>{ratings[color]}</div>
+            </div>
             <canvas ref={canvasRef} className="max-h-64"/>
         </div>
     )

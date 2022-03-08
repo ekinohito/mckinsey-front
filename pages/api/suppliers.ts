@@ -18,7 +18,7 @@ export default async function handler(
     await dbConnect()
     const suppliers = await Supplier.find().sort({rating: -1})
     if (useCache === 'false') {
-        await sleep(1000)
+        await sleep(10000)
     }
     res.status(200).json({
         status: 'ok',

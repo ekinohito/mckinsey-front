@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Supplier, SupplierDoc } from "../typings/Supplier";
+import convert from "../utils/convert";
 
 export default function SupplierCard({ supplier, index }: { supplier: SupplierDoc, index: number }) {
     return (
@@ -9,7 +10,7 @@ export default function SupplierCard({ supplier, index }: { supplier: SupplierDo
                 <td>{supplier.name}</td>
                 <td>{supplier.inn}</td>
                 <td>{supplier.ogrn}</td>
-                <td>{supplier.rating}</td>
+                <td>{convert(supplier.rating)}</td>
                 <div className="absolute top-0 bottom-0 left-0 right-full group-hover:right-0 transition-all duration-300 bg-blue-500 bg-opacity-20 "></div>
             </tr>
         </Link>
