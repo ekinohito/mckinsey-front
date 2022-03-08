@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const api = new axios.Axios({
-    baseURL: 'api',
+    baseURL: '/api',
     responseType: 'json',
 })

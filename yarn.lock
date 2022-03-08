@@ -165,6 +165,28 @@
   resolved "https://npm.yandex-team.ru/@types%2fjson5/-/json5-0.0.29.tgz?rbtorrent=8310e4fd8701071d37a7c652f86a9f36b6aa625f#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
+"@types/mongodb@*":
+  version "4.0.7"
+  resolved "https://npm.yandex-team.ru/@types%2fmongodb/-/mongodb-4.0.7.tgz?rbtorrent=2772bb584042327f088ed3564aea79863895d011#ebaa80c53b684ea52ccfe7721c0f5c9ef7b4f511"
+  integrity sha512-lPUYPpzA43baXqnd36cZ9xxorprybxXDzteVKCPAdp14ppHtFJHnXYvNpmBvtMUTb5fKXVv6sVbzo1LHkWhJlw==
+  dependencies:
+    mongodb "*"
+
+"@types/mongoose-unique-validator@^1.0.5":
+  version "1.0.5"
+  resolved "https://npm.yandex-team.ru/@types%2fmongoose-unique-validator/-/mongoose-unique-validator-1.0.5.tgz?rbtorrent=46aaf5d90e543eabd8618561e2e022e4baa409a6#2896dfb85d72b06fccde5cec3fd920b4b9dc1bbe"
+  integrity sha512-i7U0L+xrTSwaDfi18cEpC1N549yZVKTKQMzBRJpXvdPMR0BgDO6sjZ/nOoOa3ekhJTNo37DSzrPCbHeY+pd7ng==
+  dependencies:
+    "@types/mongoose" "5.10.5"
+
+"@types/mongoose@5.10.5":
+  version "5.10.5"
+  resolved "https://npm.yandex-team.ru/@types%2fmongoose/-/mongoose-5.10.5.tgz?rbtorrent=c66af04fe5586eb267526ad5f0741f82a30edb4b#0f4fb0440e8cf0213caec1e5c7b163dbd9847c56"
+  integrity sha512-37QMIA954T3n+HSksSNLlxZsqF8fMJu5S4dyPBod6gRxGtsXlQ9jUtL8BE8Seimv99u79eLXI3bggoCnSQ/fxQ==
+  dependencies:
+    "@types/mongodb" "*"
+    "@types/node" "*"
+
 "@types/node@*", "@types/node@17.0.21":
   version "17.0.21"
   resolved "https://npm.yandex-team.ru/@types%2fnode/-/node-17.0.21.tgz?rbtorrent=6f09cfe23774e283ee84cc46cbae7e06f719a0d3#864b987c0c68d07b4345845c3e63b75edd143644"
@@ -498,6 +520,11 @@ chalk@^4.0.0, chalk@^4.1.2:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chart.js@^3.7.1:
+  version "3.7.1"
+  resolved "https://npm.yandex-team.ru/chart.js/-/chart.js-3.7.1.tgz?rbtorrent=8b2692d7d6d1eb45d99bbe62be51d777f2d2de8f#0516f690c6a8680c6c707e31a4c1807a6f400ada"
+  integrity sha512-8knRegQLFnPQAheZV8MjxIXc5gQEfDFD897BJgv/klO/vtIyFFmgMXrNfgrXpbTr/XbTturxRgxIXx/Y+ASJBA==
 
 chokidar@^3.5.3:
   version "3.5.3"
@@ -1425,6 +1452,16 @@ lodash-es@^4.17.21:
   resolved "https://npm.yandex-team.ru/lodash-es/-/lodash-es-4.17.21.tgz?rbtorrent=03f1e4a728fdfbb0678d57d72e975064343b8e97#43e626c46e6591b7750beb2b50117390c609e3ee"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
+lodash.foreach@^4.1.0:
+  version "4.5.0"
+  resolved "https://npm.yandex-team.ru/lodash.foreach/-/lodash.foreach-4.5.0.tgz?rbtorrent=d4040f36a1da3bfcd17809cdd96b22c68c790e0a#1a6a35eace401280c7f06dddec35165ab27e3e53"
+  integrity sha1-Gmo16s5AEoDH8G3d7DUWWrJ+PlM=
+
+lodash.get@^4.0.2:
+  version "4.4.2"
+  resolved "https://npm.yandex-team.ru/lodash.get/-/lodash.get-4.4.2.tgz?rbtorrent=d730f45b350da198000b82266395ecc49e22c003#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+
 lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://npm.yandex-team.ru/lodash.merge/-/lodash.merge-4.6.2.tgz?rbtorrent=82906d7bb307fb4b9769b15821fd55eaca29b9f1#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
@@ -1479,13 +1516,25 @@ minimist@^1.1.1, minimist@^1.2.0:
   resolved "https://npm.yandex-team.ru/minimist/-/minimist-1.2.5.tgz?rbtorrent=d177ecf8bc0475c4b5713dde5520e90dc38ac8a3#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
-mongodb-connection-string-url@^2.4.1:
+mongodb-connection-string-url@^2.4.1, mongodb-connection-string-url@^2.5.2:
   version "2.5.2"
   resolved "https://npm.yandex-team.ru/mongodb-connection-string-url/-/mongodb-connection-string-url-2.5.2.tgz?rbtorrent=a5ff4584519e1d3a32b2a169defbb524a3f2aaed#f075c8d529e8d3916386018b8a396aed4f16e5ed"
   integrity sha512-tWDyIG8cQlI5k3skB6ywaEA5F9f5OntrKKsT/Lteub2zgwSUlhqEN2inGgBTm8bpYJf8QYBdA/5naz65XDpczA==
   dependencies:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
+
+mongodb@*:
+  version "4.4.1"
+  resolved "https://npm.yandex-team.ru/mongodb/-/mongodb-4.4.1.tgz?rbtorrent=708051b93bbcfd2376812c9b2a07e9a557d24554#e604cfbe2d5e125ae156ad04b52d261bed480b99"
+  integrity sha512-IAD3nFtCR4s22vi5qjqkCBnuyDDrOW8WVSSmgHquOvGaP1iTD+XpC5tr8wAUbZ2EeZkaswwBKQFHDvl4qYcKqQ==
+  dependencies:
+    bson "^4.6.1"
+    denque "^2.0.1"
+    mongodb-connection-string-url "^2.5.2"
+    socks "^2.6.2"
+  optionalDependencies:
+    saslprep "^1.0.3"
 
 mongodb@4.3.1:
   version "4.3.1"
@@ -1498,6 +1547,15 @@ mongodb@4.3.1:
     socks "^2.6.1"
   optionalDependencies:
     saslprep "^1.0.3"
+
+mongoose-unique-validator@^3.0.0:
+  version "3.0.0"
+  resolved "https://npm.yandex-team.ru/mongoose-unique-validator/-/mongoose-unique-validator-3.0.0.tgz?rbtorrent=f388095d3b751691d7a3ffaa5f8f560fd1053116#cc65a7237573cfc82d848f2fb9fade8627575760"
+  integrity sha512-WwC09CN2OQ39ONCEN2quR2L5CLHau3p2VYegRMitoVwdKA738uuJRlrTHXt5J6WyJBSloCILxwDZ5qbu4yEXcA==
+  dependencies:
+    lodash.foreach "^4.1.0"
+    lodash.get "^4.0.2"
+    lodash.merge "^4.6.2"
 
 mongoose@^6.2.4:
   version "6.2.4"
@@ -1980,7 +2038,7 @@ smart-buffer@^4.2.0:
   resolved "https://npm.yandex-team.ru/smart-buffer/-/smart-buffer-4.2.0.tgz?rbtorrent=7f609c62fa2da8e36c17c75bf7ea510a75ef8d8c#6e1d71fa4f18c05f7d0ff216dd16a481d0e8d9ae"
   integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
 
-socks@^2.6.1:
+socks@^2.6.1, socks@^2.6.2:
   version "2.6.2"
   resolved "https://npm.yandex-team.ru/socks/-/socks-2.6.2.tgz?rbtorrent=1e995a0daabae9b856df8e0ba691f445d75e24de#ec042d7960073d40d94268ff3bb727dc685f111a"
   integrity sha512-zDZhHhZRY9PxRruRMR7kMhnf3I8hDs4S3f9RecfnGxvcBHQcKcIH/oUcEWffsfl1XxdYlA7nnlGbbTvPz9D8gA==

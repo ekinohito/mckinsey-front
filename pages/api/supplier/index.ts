@@ -1,19 +1,21 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import Supplier from '../../../models/Supplier'
 import { OptResponse } from '../../../typings/Response'
-import { SupplierDoc } from '../../../typings/Supplier'
+import { Supplier as SupplierType } from '../../../typings/Supplier'
 import dbConnect from '../../../utils/dbConnect'
 
-type Data = SupplierDoc
-export type SupplierResponse = OptResponse<Data, string>
+type Data = {
+    name: string
+}
 
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse<SupplierResponse>
+    res: NextApiResponse<OptResponse<Data, string>>
 ) {
     await dbConnect()
     try {
-        const supplier = await Supplier.findById(req.query.id)
+        const supplierData = req.body as SupplierType
+        const supplier = await Supplier.create(supplierData)
         if (!supplier) {
             res.status(200).json({
                 status: 'error',
@@ -22,13 +24,15 @@ export default async function handler(
         } else {
             res.status(200).json({
                 status: 'ok',
-                data: supplier
+                data: {
+                    name: supplier.name
+                }
             })
         }
     } catch (e: any) {
         res.status(200).json({
             status: 'error',
-            data: 'incorrect id'
+            data: e.toString()
         })
     }
 }

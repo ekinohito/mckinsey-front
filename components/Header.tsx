@@ -1,8 +1,26 @@
 import Link from "next/link";
 
+function Logo({countdown}:{countdown: number}) {
+    if (countdown <= 0) return null
+    return (
+        <>
+            5 денег
+            <span className="opacity-60 mx-3">
+                <Logo countdown={countdown - 1}/>
+            </span>
+        </>
+    )
+}
+
 export default function Header() {
-    return <div className="sticky top-0 z-10 w-full bg-blue-600  border-[#375974] border-b-2 flex flex-row items-baseline py-3 px-3 sm:px-20 text-gray-100">
-        <div className="text-white text-2xl font-bold font-mono mx-6 hidden sm:block">Поиск поставщиков</div>
-        <div className="mx-3"><Link href="/">Главная</Link></div>
+    return <div className="sticky top-0 z-10 w-full bg-[#011631] border-[#375974] border-b-2 flex flex-row items-baseline justify-between p-4 sm:px-20 text-gray-100">
+        <div className="text-white text-lg font-bold mx-6 whitespace-nowrap overflow-hidden">
+            <Logo countdown={7}/>
+        </div>
+        <div className="space-x-6">
+            <Link href="/">Поиск</Link>
+            <Link href="/">Избранное</Link>
+            <Link href="/">Настройки</Link>
+        </div>
     </div>
 }

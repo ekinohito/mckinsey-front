@@ -1,10 +1,14 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import { useState } from 'react'
+import { api } from '../axios/api'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import SideMenu from '../components/SideMenu'
+import mapper, { InData } from '../utils/mapper'
 
 const Home: NextPage = () => {
+    const [text, setText] = useState('')
     return (
         <div className="bg-[#01385f] border-[#375974] text-white">
             <Head>
@@ -16,7 +20,20 @@ const Home: NextPage = () => {
                 <link rel="manifest" href="/site.webmanifest" />
             </Head>
             <Header />
-            <Main/>
+            <textarea value={text} onChange={e => setText(e.currentTarget.value)} />
+            <button onClick={async () => {
+                const t = JSON.parse(text) as InData[]
+                for (const v of t) {
+                    const x = mapper(v)
+                    console.log(x)
+                    try {
+                        await api.post('supplier', JSON.stringify(x), {headers: {"Content-Type": "application/json"}})
+                        console.log('success!')
+                    } catch {
+                        console.log('no success!')
+                    }
+                }
+            }}>fix</button>
         </div>
     )
 }
