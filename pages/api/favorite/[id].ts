@@ -14,7 +14,7 @@ export default async function handler(
     await dbConnect()
     const { id } = req.query
     try {
-        return res.status(200).json(await Favorite.findById(id ))
+        return res.status(200).json(await Favorite.findById(id))
     } catch (e: any) {
         return res.status(400).json({ status: e.toString() })
     }

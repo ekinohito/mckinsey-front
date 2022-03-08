@@ -26,7 +26,9 @@ const Supplier: NextPage = () => {
         })()
     }, [id])
     async function addToFavorite() {
-        
+        if (!data) return
+        const {_id, inn, ogrn, rating} = data
+        await api.post('/favorite/add', JSON.stringify({inn, ogrn, rating, id:_id}), {headers: {"Content-Type": "application/json"}})
     }
     return (
         <div>
