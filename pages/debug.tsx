@@ -20,8 +20,8 @@ const Home: NextPage = () => {
                 <link rel="manifest" href="/site.webmanifest" />
             </Head>
             <Header />
-            <textarea value={text} onChange={e => setText(e.currentTarget.value)} />
-            <button onClick={async () => {
+            <textarea className='text-[#9ed65e] bg-[#01385f] w-full' value={text} onChange={e => setText(e.currentTarget.value)} />
+            <button className='border-2 p-5' onClick={async () => {
                 const t = JSON.parse(text) as InData[]
                 for (const v of t) {
                     const x = mapper(v)
@@ -34,6 +34,16 @@ const Home: NextPage = () => {
                     }
                 }
             }}>fix</button>
+            <button className='border-2 p-5' onClick={async () => {
+                const t = JSON.parse(text) as InData[]
+                const res = []
+                for (const v of t) {
+                    const x = mapper(v)
+                    res.push(x.inn)
+                }
+                console.log(res)
+                console.log(JSON.stringify(res))
+            }}>inns</button>
         </div>
     )
 }

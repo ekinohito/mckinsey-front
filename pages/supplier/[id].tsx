@@ -8,6 +8,7 @@ import Download from "../../components/Download"
 import GraphCard from "../../components/GraphCard"
 import Header from "../../components/Header"
 import InfoCard from "../../components/InfoCard"
+import { TagsSection } from "../../components/TagsSection"
 import { SupplierDoc } from "../../typings/Supplier"
 import { SupplierResponse } from "../api/supplier/[id]"
 
@@ -47,6 +48,7 @@ const Supplier: NextPage = () => {
                         <h2 className="text-xl text-gray-400">Название</h2>
                         <h1 className="text-3xl">{data?.name}</h1>
                     </section>
+                    {data?.tags && <TagsSection tags={data?.tags}/>}    
                     <section>
                         <h2 className="text-xl text-gray-400">ИНН</h2>
                         <h1 className="text-3xl">{data?.inn}</h1>

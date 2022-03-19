@@ -1,3 +1,9 @@
+export interface Tag {
+    text: string
+    color?: string
+    hint?: string
+}
+
 export interface Supplier {
     inn: string,
     ogrn: string,
@@ -21,6 +27,7 @@ export interface Supplier {
         phone?: string,
         email?: string,
     }
+    tags?: Tag[]
 }
 
 export type SupplierDoc = Supplier & { _id: string }
