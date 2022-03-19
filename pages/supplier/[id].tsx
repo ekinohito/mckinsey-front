@@ -4,6 +4,7 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { api } from "../../axios/api"
+import Download from "../../components/Download"
 import GraphCard from "../../components/GraphCard"
 import Header from "../../components/Header"
 import InfoCard from "../../components/InfoCard"
@@ -66,6 +67,7 @@ const Supplier: NextPage = () => {
                     </>}
                     {false && process.env.NODE_ENV === "development" && <section><a href={`https://www.list-org.com/search?type=inn&val=${data?.inn}`}>телефон</a></section>}
                     <button onClick={addToFavorite}>Добавить в избранное</button>
+                    {data && <section><Download supplier={data} fileName="exp"/></section>}
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 col-span-2 gap-[2px] min-h-screen">
                     {data && <>
