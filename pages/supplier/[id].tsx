@@ -7,7 +7,6 @@ import { api } from "../../axios/api"
 import GraphCard from "../../components/GraphCard"
 import Header from "../../components/Header"
 import InfoCard from "../../components/InfoCard"
-import { OptResponse } from "../../typings/Response"
 import { SupplierDoc } from "../../typings/Supplier"
 import { SupplierResponse } from "../api/supplier/[id]"
 
@@ -27,8 +26,8 @@ const Supplier: NextPage = () => {
     }, [id])
     async function addToFavorite() {
         if (!data) return
-        const {_id, inn, ogrn, rating} = data
-        await api.post('/favorite/add', JSON.stringify({inn, ogrn, rating, id:_id}), {headers: {"Content-Type": "application/json"}})
+        const {_id, inn, ogrn, name, rating, contacts} = data
+        await api.post('/favorite/add', JSON.stringify({inn, ogrn, rating, name, id:_id}), {headers: {"Content-Type": "application/json"}})
     }
     return (
         <div>
@@ -55,8 +54,21 @@ const Supplier: NextPage = () => {
                         <h2 className="text-xl text-gray-400">ОГРН</h2>
                         <h1 className="text-3xl">{data?.ogrn}</h1>
                     </section>
+                    {data?.contacts && <>
+                    {data.contacts.phone && <section>
+                        <h2 className="text-xl text-gray-400">Телефон</h2>
+                        <h1 className=" text-3xl">{data.contacts.phone}</h1>
+                    </section>}
+                    {data.contacts.email && <section>
+                        <h2 className="text-xl text-gray-400">E-mail</h2>
+                        <h1 className="text-3xl">{data.contacts.email}</h1>
+                    </section>}
+                    </>}
+                    {false && process.env.NODE_ENV === "development" && <section><a href={`https://www.list-org.com/search?type=inn&val=${data?.inn}`}>телефон</a></section>}
+                    <button onClick={addToFavorite}>Добавить в избранное</button>
                 </div>
-                {data && <div className="grid grid-cols-1 sm:grid-cols-2 col-span-2 gap-[2px] min-h-screen">
+                <div className="grid grid-cols-1 sm:grid-cols-2 col-span-2 gap-[2px] min-h-screen">
+                    {data && <>
                     <GraphCard rating={data.rating} data={[+data.financeTotal, +data.juridicalTotal, +data.experienceTotal, 5, 5]}/>
                     <InfoCard title="Финансы" details={[
                         {
@@ -127,7 +139,7 @@ const Supplier: NextPage = () => {
                         { info: "", key: "Количество товара", value: 'неизвестно' },
                         { info: "", key: "Процент брака", value: 'неизвестно' },
                     ]} rating="-" />
-                </div>}
+                </>}</div>
             </div>
         </div>
     )

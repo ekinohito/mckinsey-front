@@ -10,6 +10,6 @@ export default function Main() {
     return <main className="max-w-3xl shadow-2xl p-4 min-h-screen mx-auto ">
         <GoodsForm setSuppliers={setSuppliers} setLoading={setLoading}/>
         {suppliers && <SuppliersList suppliers={suppliers}/>}
-        {loading && <img className='m-auto w-44 h-48' loading='eager' src="https://dilancovak.com/images/loading.gif"/>}
+        {loading && <img className='m-auto w-32 h-32 mt-32' loading='eager' src="/magnifier.png"/>}
     </main>
 }

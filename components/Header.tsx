@@ -14,9 +14,11 @@ function Logo({countdown}:{countdown: number}) {
 
 export default function Header() {
     return <div className="sticky top-0 z-10 w-full bg-[#011631] border-[#375974] border-b-2 flex flex-row items-baseline justify-between p-4 sm:px-20 text-gray-100">
-        <div className="text-white text-lg font-bold mx-6 whitespace-nowrap overflow-hidden">
-            <Logo countdown={7}/>
-        </div>
+        <Link href="/" passHref>
+            <a className="text-white text-lg font-bold mx-6 whitespace-nowrap overflow-hidden">
+                <Logo countdown={7}/>
+            </a>
+        </Link>
         <div className="space-x-6">
             <Link href="/">Поиск</Link>
             <Link href="/favorites">Избранное</Link>

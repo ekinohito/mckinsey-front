@@ -16,7 +16,11 @@ export interface Supplier {
     experienceSize: string,
     experienceStability: string,
     experienceSustainability: string,
-    experienceSupplier: string
+    experienceSupplier: string,
+    contacts?: {
+        phone?: string,
+        email?: string,
+    }
 }
 
 export type SupplierDoc = Supplier & { _id: string }
